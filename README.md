@@ -1,4 +1,33 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #1: The Game
+__
+GAME CONCEPT: MAZE RACER
+beat the clock by navigating your character through a maze using the arrow keys and try and beat your best time or take turns trying to out navigate your opponent and beat their time.
+
+__
+STRETCH GOAL 2: ANIMATIONS AND BOUNCE
+Animate the transitions as the character moves through the game. if top down view of character, have them turn and face the direction they are being guided by the player. if the player navigates into a wall, "bounce" the player back one space.
+
+__
+STRETCH GOAL 1: MULTIPLE LEVELS
+once the logic has been created for navigating the maze, create level 2 with a slightly more complicated maze and build in the ability to continue to add new levels.
+
+__
+STRETCH GOAL 3: LEADERBOARD
+if you get a best time, be able to enter your initials and append a leader board of best times.
+
+/////
+__
+WIREFRAMES:
+![alt text](http://i.imgur.com/g8ownJO.jpg)
+
+
+/////
+__
+7/10/17:
+- wireframe stetches
+- set up git repo and gh-pages branch
+- write out game concept
+
 
 ### Overview
 
