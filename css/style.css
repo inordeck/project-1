@@ -1,0 +1,21 @@
+/*
+FONTS IN USE - GOOGLE FONTS
+font-family: 'Bungee Outline', sans-serif; - no font-weights
+font-family: 'Bungee Inline', sans-serif; - no font-weights
+font-family: 'Raleway', sans-serif; 
+	font-weights: 300 800
+*/
+
+/*
+COLORS IN USE
+
+*/
+h1 {
+	font-family: "Bungee Outline", sans-serif;
+	font-size: 72px;
+}
+
+main {
+	margin: 0 auto;
+	text-align: center;
+}
