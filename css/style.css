@@ -10,15 +10,107 @@ font-family: 'Raleway', sans-serif;
 COLORS IN USE
 
 */
+body {
+	margin: 0 auto;
+	text-align: center;
+}
+
 h1 {
 	font-family: "Bungee Outline", sans-serif;
 	font-size: 165px;
 	color: orange;
 }
 
-body {
+h2 { /* plyer number */
+	font-family: "Bungee Outline", sans-serif;
+	font-size: 90px;
+	color: black;
+}
+
+h3 { /* time clocks */
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 36px
+}
+
+h4{ /* instructions */
+	margin: 15px 0;
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 25px;
+	text-transform: uppercase; 
+}
+h5 { /* made by */
+	margin: 10px 0;
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 22px;
+	letter-spacing: 1px;
+	text-transform: uppercase; 
+}
+
+p {
+	margin: 10px 0;
+	font-family: "Raleway", sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+}
+
+/* // GAME HEAD // */ 
+.gameHead {
+	margin-bottom: 10px;
+}
+.bestTime{
+	float: left;
+	margin: 20px 0 0 50px;
+}
+.playerId {
+	display: inline-block;
 	margin: 0 auto;
 	text-align: center;
+}
+#playerTitle {
+	z-index: 20;
+	position: absolute;
+	margin: 40px 0 0 5px	;
+}
+#playerNum {
+	z-index: 10;
+	position: absolute;
+	margin: 5px 0 0 22px;
+	color: white;
+}
+#playerCircle {
+	z-index: -10;
+	position: relative;
+}
+.timer {
+	float: right;
+	margin: 20px 50px 0 0;
+}
+
+form {
+	position: relative;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+
+}
+#tryAgain {
+	padding: 15px 15px;
+	margin: 30px 0 20px 0;
+	border: 2px solid orange;
+	background-color: white;
+	box-shadow: none;
+	font-family: "Bungee Inline", sans-serif;
+	font-size: 30px;
+	color: orange;
+	text-decoration: none;
+}
+#tryAgain:hover {
+	border: 2px solid orange;
+	background-color: orange;
+	color: white;
 }
 
 /* FOOTER */
@@ -54,4 +146,5 @@ footer {
 	clear: left;
 	font-family: "Raleway",sans-serif;
 	font-weight: 300;
+	font-size: 14px;
 }
