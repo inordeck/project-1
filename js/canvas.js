@@ -72,61 +72,25 @@ ctx.fillRect(530, 240, 420, 20);
 ctx.fillRect(130, 320, 180, 20);
 ctx.fillRect(450, 320, 500, 20);
 
+
 /* PLAYER 1 */
-/*
 var p1x = 75;
 var p1y = 50;
 var p1Radius = 20;
 
-var p1Eyex = 82;
-var p1Eyey = 46;
-var p1EyeRadius = 10;
-
-var p1Highlightx = 86;
-var p1Highlighy = 42;
-var p1HighlightRadius = 3;
-
 drawP1();
-*/
-/*
+
 function drawP1() {
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	/* body
+	// clear the canvas for the next frame
+//	ctx.clearRect(0,0,canvas.width,canvas.height); // ERROR: clearing game board
+	/* body */
 	ctx.beginPath();
 	ctx.arc(p1x, p1y, p1Radius, 0, Math.PI * 2, false);
 	ctx. closePath();
 	ctx.fillStyle = 'orange';
 	ctx.fill();
-	/
-	
-	/* eye
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	ctx.beginPath();
-	ctx.arc(p1Eyex, p1Eyey, p1EyeRadius, 0, Math.PI * 2, false);
-	ctx. closePath();
-	ctx.fillStyle = 'black';
-	ctx.fill();
-	*/
+}
 
-	/* highlight
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	ctx.beginPath();
-	ctx.arc(p1Highlightx, p1Highlighy, p1HighlightRadius, 0, Math.PI * 2, false);
-	ctx.fillStyle = 'white';
-	ctx.fill();
-	*/
-
-	/* mouth
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	ctx.beginPath();
-	ctx.lineCap = 'round';
-	ctx.moveTo(80, 62);
-	ctx.lineTo(88, 62);
-	ctx.lineWidth = 2; 
-	ctx.stroke();
-} */
-
-/*
 window.addEventListener("keyDown", keyDownHandler, true); 
     // Here we just handle command keys
 function keyDownHandler(event) {
@@ -136,45 +100,53 @@ function keyDownHandler(event) {
 	if(key>46){ return; }
 	switch(key){
 		case 37:  // left key
-		// move the ball 1 left by subtracting 1 from p1X
-        p1X -= 1;
+		// move the ball left by subtracting from p1X
+        p1x -= 20;
         break;
 
         case 39:  // right key
-        // move the ball 1 right by adding 1 to p1X
-        p1X += 1;
+        // move the ball right by adding to p1X
+        p1x += 20;
+        break;
+
+        case 38:  // up key
+		// move the ball left by subtracting from p1X
+        p1y -= 20;
+        break;
+
+        case 40:  // down key
+		// move the ball left by subtracting from p1X
+        p1y += 20;
         break;
 
     default:
         break;
     }
 	drawP1();
+}  // end of event handler function
 
-}
 window.addEventListener("keydown", keyDownHandler, true);
-*/
 
-/* PLAYER 2 */
-function drawP2(){
-	/* body */
+
+
+/* PLAYER 2 
+function drawP2(){ */
+	/* body 
 	ctx.beginPath();
 	ctx.arc(75, 50, 20, 0, Math.PI * 2, false);
 	ctx.fillStyle = 'yellow';
-	ctx.fill();
-
-	/* eye */
+	ctx.fill(); */
+	/* eye 
 	ctx.beginPath();
 	ctx.arc(82, 46, 10, 0, Math.PI * 2, false);
 	ctx.fillStyle = 'black';
-	ctx.fill();
-
-	/* highlight */
+	ctx.fill(); */
+	/* highlight 
 	ctx.beginPath();
 	ctx.arc(86, 42, 3, 0, Math.PI * 2, false);
 	ctx.fillStyle = 'white';
-	ctx.fill();
-
-	/* mouth */
+	ctx.fill();*/
+	/* mouth 
 	ctx.beginPath();
 	ctx.lineCap = 'round';
 	ctx.moveTo(80, 62);
@@ -182,11 +154,5 @@ function drawP2(){
 	ctx.lineWidth = 2; 
 	ctx.stroke();
 }
-
-function animation() {
-	requestAnimationFrame(animate);
-	ctx.clearRect(0, 0, innerWidth, innerHeight);
-	console.log('animation test');
-}
-
+drawP2(); */
 
