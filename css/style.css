@@ -10,63 +10,20 @@ font-family: 'Raleway', sans-serif;
 COLORS IN USE
 
 */
-body {
-	margin: 0 auto;
-	text-align: center;
-}
-
+/* // GAME HEADER // */ 
 h1 {
+	margin: 10px 25px 0 50px;
+	position: relative;
+	display: inline-block;
+	float: left;
 	font-family: "Bungee Outline", sans-serif;
-	font-size: 165px;
+	font-size: 130px;
 	color: orange;
 }
-
-h2 { /* plyer number */
-	font-family: "Bungee Outline", sans-serif;
-	font-size: 90px;
-	color: black;
-}
-
-h3 { /* time clocks */
-	font-family: "Raleway", sans-serif;
-	font-weight: 800;
-	font-size: 36px
-}
-
-h4{ /* instructions */
-	margin: 15px 0;
-	font-family: "Raleway", sans-serif;
-	font-weight: 800;
-	font-size: 25px;
-	text-transform: uppercase; 
-}
-h5 { /* made by */
-	margin: 10px 0;
-	font-family: "Raleway", sans-serif;
-	font-weight: 800;
-	font-size: 22px;
-	letter-spacing: 1px;
-	text-transform: uppercase; 
-}
-
-p {
-	margin: 10px 0;
-	font-family: "Raleway", sans-serif;
-	font-weight: 300;
-	font-size: 18px;
-}
-
-/* // GAME HEAD // */ 
-.gameHead {
-	margin-bottom: 10px;
-}
-.bestTime{
-	float: left;
-	margin: 20px 0 0 50px;
-}
 .playerId {
+	margin: 25px 0;
 	display: inline-block;
-	margin: 0 auto;
+	float: left;
 	text-align: center;
 }
 #playerTitle {
@@ -84,26 +41,60 @@ p {
 	z-index: -10;
 	position: relative;
 }
-.timer {
+.bestTime{
 	float: right;
-	margin: 20px 50px 0 0;
+	text-align: right;
+	margin: 30px 50px 0 0;
 }
 
+.timer {
+	float: right;
+	text-align: right;
+	margin: 30px 50px 0 0;
+}
+
+h2 { /* player number */
+	font-family: "Bungee Outline", sans-serif;
+	font-size: 90px;
+	color: black;
+}
+
+h3 { /* time clocks */
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 36px
+}
+
+h5 { /* made by & player*/
+	margin: 10px 0;
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 22px;
+	letter-spacing: 1px;
+	text-transform: uppercase; 
+}
+
+main {
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+/* // TRY AGAIN // */
 form {
 	position: relative;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-
 }
 #tryAgain {
-	padding: 15px 15px;
-	margin: 30px 0 20px 0;
+	padding: 5px 10px;
+	margin: 20px 0;
 	border: 2px solid orange;
 	background-color: white;
 	box-shadow: none;
 	font-family: "Bungee Inline", sans-serif;
-	font-size: 30px;
+	font-size: 25px;
 	color: orange;
 	text-decoration: none;
 }
@@ -113,38 +104,31 @@ form {
 	color: white;
 }
 
+/* // INSTRUCTIONS // */
+h4{ /* instructions */
+	display: inline;
+	clear: none;
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 18px;
+	text-transform: uppercase; 
+}
+
+p {
+	display: inline;
+	clear: none;
+	font-family: "Raleway", sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+}
+
 /* FOOTER */
-footer {
-	color: #58585a;
-	margin-top: 100px;
-}
-.footerInfo {
-	margin: 0 auto;
-	max-width: 400px;
-	text-align: center;
-}
-.made {
-	display: inline-block;
-	float: left;
-	padding: 50px 10px 15px 10px;
-	margin-bottom: 25px;
-	font-family: "Bungee Inline", sans-serif;
-	font-size: 30px;
-}
-.logo {
-	display: inline-block;
-	float: right;
-	clear: right;
-	padding: 25px 10px 15px 10px;
-	margin-bottom: 25px; 
-	height: 60px;
-}
 .copyright {
-	display: block;
-	padding: 10px 0 40px 0;
+	padding: 20px 0 40px 0;
+	text-align: center;
 	margin: 0 auto;
-	clear: left;
 	font-family: "Raleway",sans-serif;
 	font-weight: 300;
 	font-size: 14px;
+	color: #58585a;
 }

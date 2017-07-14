@@ -10,39 +10,28 @@
 <body>
 	<header>
 		<h1>maze racer</h1>
+		<div class="playerId">
+			<h5 id="playerTitle">player</h5>
+			<h2 id="playerNum">2</h2>
+			<svg id="playerCircle" height="100" width="100">
+				<circle cx="50" cy="50" r="50" fill="orange"></circle>
+			</svg>
+		</div>
+		<h3 class="bestTime">BEST TIME <span id="bestClock">00:00:00</span></h3>
+		<h3 class="timer">TIME <span id="clock">00:00:00</span></h3>
 	</header>
 	<main>
-		<section class="gameHead">
-			<div class="bestTime">
-				<h3>BEST TIME <span id="bestClock">00:00:00</span></h3>
-			</div>
-			<div class="playerId">
-				<h5 id="playerTitle">player</h5>
-				<h2 id="playerNum">2</h2>
-				<svg id="playerCircle" height="100" width="100">
-					<circle cx="50" cy="50" r="50" fill="orange"></circle>
-				</svg>
-			</div>
-			<div class="timer">
-				<h3>TIME <span id="clock">00:00:00</span></h3>
-			</div>
-		</section>
 		<canvas class="gameboard" width="1080px" height="420px"></canvas>
 		 <form > <!-- click for new race -->
     		<input id="tryAgain" type="button" value="try again" onclick="window.location.reload()" />
 		</form>
 		<div class="instructions">
-			<h4>instructions</h4>
-			<p>Use the arrow keys to move through the maze.</p>
-			<p>Best time wins!</p>
+			<h4>instructions:</h4>
+			<p>Use the arrow keys to move through the maze. Best time wins!</p>
 		</div>
 	</main>
 	<footer>
-		<div class="footerInfo">
-			<h5 class="made">made by:</h5>
-			<img class="logo" src="images/ian-nordeck-logo-01.svg" alt="ian t. nordeck logo">
-			<p class="copyright">copyright 2017, ian t. nordeck</p>
-		</div>
+		<p class="copyright">copyright 2017, ian t. nordeck</p>
 	</footer>
 
 	<!-- javascript links -->
