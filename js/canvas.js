@@ -62,7 +62,7 @@ function draw(){
     var drawP1 = function() {
         ctx.beginPath();
         var half = blockSize/2;
-        ctx.fillStyle = "orange";
+        ctx.fillStyle = "turquoise";
         ctx.arc(player1.x*blockSize+half, player1.y*blockSize+half, half, 0, 2*Math.PI);
         ctx.fill();
     };
@@ -99,7 +99,8 @@ function setWinState() {
     node.setAttribute("id", "winner");
     var textNode = document.createTextNode("Winner!");
     node.appendChild(textNode);
-    document.body.appendChild(node);
+    var winner = document.getElementById("game");
+    winner.appendChild(node);
     $(document).unbind("keyup"); // stop movement after win
     }
 
