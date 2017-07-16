@@ -1,177 +1,137 @@
-console.log("is there anybody, out there...");
+console.log("hello");
 
-/*  set up canvas */
-var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext('2d');
+var canvas = $('#GameBoardCanvas');
+// the game board: 1 = walls, 0 = free space, and -1 = the goal
+var board = [
+    [ -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 1
+    [ 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0], // 2
+    [ 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1], // 3
+    [ 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0], // 4
+    [ 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0], // 5
+    [ 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0], // 6
+    [ 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1], // 7
+    [ 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0], // 8
+    [ 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0], // 9
+    [ 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0], // 10
+    [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, -1], // 11
+];
+// player scores
+var p1Score = 0;
+var p2Score = 0;
 
-/* load google fonts into canvas */
-var link = document.createElement('link');
-link.rel = 'stylesheet';
-link.type = 'text/css';
-link.href = 'https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Outline|Raleway:300,800';
-document.getElementsByTagName('head')[0].appendChild(link);
+// set the player positions
+var player1 = {
+    x: 0,
+    y: 0
+};
+var player2 = {
+    x: 10,
+    y: 10
+};
 
-
-/* MAZE */
-function drawMaze() {
-/* maze start */
-	var font, x, y;
-	font = 100;
-	x = 130;
-	y = 90;
-	this.ctx.font = font + 'px "Bungee Outline"';
-	this.ctx.fillStyle = 'gray';
-	this.ctx.save();
-	this.ctx.translate(x, y);
-	this.ctx.rotate(Math.PI / 2);
-	this.ctx.textAlign = 'center';
-	this.ctx.fillText('start', x, y);
-	this.ctx.restore();
-/* maze finish */
-	var font, x, y;
-	font = 90;
-	x = 590;
-	y = -380;
-	this.ctx.font = font + 'px "Bungee Outline"';
-	this.ctx.fillStyle = 'gray';
-	this.ctx.save();
-	this.ctx.translate(x, y);
-	this.ctx.rotate(Math.PI / 2);
-	this.ctx.textAlign = 'center';
-	this.ctx.fillText('finish', x, y);
-	this.ctx.restore();
-/* maze frame */
-	ctx.fillStyle = "black";
-	ctx.fillRect(0, 0, 1080, 20); // top wall
-	ctx.fillRect(0, 400, 1080, 20); // bottom wall
-	ctx.fillRect(0, 0, 20, 420); // left wall
-	ctx.fillRect(1060, 0, 20, 420); // right wall
-	ctx.fillRect(130, 0, 20, 260); // inner left top
-	ctx.fillRect(130, 320, 20, 100); // inner left bottom
-	ctx.fillRect(930, 0, 20, 260); // inner right top
-	ctx.fillRect(930, 320, 20, 100); // inner right bottom
-/* vertical maze walls */
-	ctx.fillRect(210, 80, 20, 100);
-	ctx.fillRect(290, 0, 20, 100);
-	ctx.fillRect(290, 160, 20, 100);
-	ctx.fillRect(370, 80, 20, 100);
-	ctx.fillRect(370, 320, 20, 100);
-	ctx.fillRect(450, 160, 20, 180);
-	ctx.fillRect(530, 80, 20, 180);
-	ctx.fillRect(610, 80, 20, 100);
-	ctx.fillRect(850, 80, 20, 180);
-/* horizontal maze walls */
-	ctx.fillRect(210, 80, 100, 20);
-	ctx.fillRect(370, 80, 180, 20);
-	ctx.fillRect(610, 80, 260, 20);
-	ctx.fillRect(610, 160, 180, 20);
-	ctx.fillRect(130, 240, 180, 20);
-	ctx.fillRect(370, 240, 100, 20);
-	ctx.fillRect(530, 240, 420, 20);
-	ctx.fillRect(130, 320, 180, 20);
-	ctx.fillRect(450, 320, 500, 20);
-} // end of draw maze function
-drawMaze();
-
-
-/* PLAYER 1 */
-var p1x = 75;
-var p1y = 50;
-var p1Radius = 20;
-
-function player1() {
-	// clear the canvas for the next frame
-	/* body */
-	ctx.beginPath();
-	ctx.arc(p1x, p1y, p1Radius, 0, Math.PI * 2, false);
-	ctx. closePath();
-	ctx.fillStyle = 'orange';
-	ctx.fill();
-}
-player1();
-
-/* write function to clear canvas */
-function clear(){
-	ctx.clearRect(0,0,canvas.width,canvas.height); // ERROR: clearing game board
-}
-
-window.addEventListener("keyDown", keyDownHandler, true); 
-function keyDownHandler(event) {
-	clear();
-	var key=event.which;
-	if(key>46){ return; }
-	switch(key){
-		case 37:  // left key
-		// move the ball left 
-        p1x -= 20;
-        break;
-        case 39:  // right key
-        // move the ball right 
-        p1x += 20;
-        break;
-        case 38:  // up key
-		// move the ball left 
-        p1y -= 20;
-        break;
-        case 40:  // down key
-		// move the ball left 
-        p1y += 20;
-        break;
+// draw the game board
+function draw(){
+    var width = canvas.width();
+    var blockSize = width/board.length;
+    var ctx = canvas[0].getContext('2d');
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, width, width);
+    ctx.fillStyle="gray";
+    // loop through the board array drawing the walls and the goal
+    for(var y = 0; y < board.length; y++){
+        for(var x = 0; x < board[y].length; x++){
+            // draw the walls
+            if(board[y][x] === 1){
+                ctx.fillRect(x*blockSize, y*blockSize, blockSize, blockSize);
+            }
+            // draw the goals
+            else if(board[y][x] === -1){
+                ctx.beginPath();
+                ctx.lineWidth = 5;
+                ctx.strokeStyle = "gold";
+                ctx.moveTo(x*blockSize, y*blockSize);
+                ctx.lineTo((x+1)*blockSize, (y+1)*blockSize);
+                ctx.moveTo(x*blockSize, (y+1)*blockSize);
+                ctx.lineTo((x+1)*blockSize, y*blockSize);
+                ctx.stroke();
+            }
+        }
     }
-	player1();
-	drawMaze();
-}  // end of key handler function
 
-window.addEventListener("keydown", keyDownHandler, true);
+    // draw the players
+    var drawP1 = function() {
+        ctx.beginPath();
+        var half = blockSize/2;
+        ctx.fillStyle = "orange";
+        ctx.arc(player1.x*blockSize+half, player1.y*blockSize+half, half, 0, 2*Math.PI);
+        ctx.fill();
+    };
+    drawP1();
 
-function collisionDetection() {
-	/* outside edges */
-	/* outside edge top */
-	if (p1Radis.y > 40) {
-		p1Radis.y = 40;
-	}
+    var drawP2 = function() {
+        ctx.beginPath();
+        var half = blockSize/2;
+        ctx.fillStyle = "teal";
+        ctx.arc(player2.x*blockSize+half, player2.y*blockSize+half, half, 0, 2*Math.PI);
+        ctx.fill();
+    };
+    drawP2();
 }
-collisionDetection();
-/*var startCountdown = setInterval(function(){
-$("#count_num").html(function(i,html){
-   if(parseInt(html)>1)
-   {
-   return parseInt(html)-1;
-   }
-   else
-   {
-   clearTimeout(timer);
-   return "GO!";
-   }
- });
-//startCountdown();
 
-},1000);
-
-/* PLAYER 2 
-function drawP2(){ */
-	/* body 
-	ctx.beginPath();
-	ctx.arc(75, 50, 20, 0, Math.PI * 2, false);
-	ctx.fillStyle = 'yellow';
-	ctx.fill(); */
-	/* eye 
-	ctx.beginPath();
-	ctx.arc(82, 46, 10, 0, Math.PI * 2, false);
-	ctx.fillStyle = 'black';
-	ctx.fill(); */
-	/* highlight 
-	ctx.beginPath();
-	ctx.arc(86, 42, 3, 0, Math.PI * 2, false);
-	ctx.fillStyle = 'white';
-	ctx.fill();*/
-	/* mouth 
-	ctx.beginPath();
-	ctx.lineCap = 'round';
-	ctx.moveTo(80, 62);
-	ctx.lineTo(88, 62);
-	ctx.lineWidth = 2; 
-	ctx.stroke();
+// check for a winner
+function checkWinner () {
+    if (player1.x === 10 && player1.y === 10) {
+        setWinState(player1);
+    } 
+    if (player2.x === 0 && player2.y === 0) {
+        setWinState(player2);
+    }
 }
-drawP2(); */
 
+// check to see if the new space is inside the board and not a wall
+function canMove(x, y){
+    return (y>=0) && (y<board.length) && (x >= 0) && (x < board[y].length) && (board[y][x] != 1);
+}
+
+// announce winner
+function setWinState() {
+    var node = document.createElement("h2");
+    node.setAttribute("id", "winner");
+    var textNode = document.createTextNode("Winner!");
+    node.appendChild(textNode);
+    document.body.appendChild(node);
+    $(document).unbind("keyup"); // stop movement after win
+    }
+
+// player 1 keys
+$(document).keyup(function(e){
+    if((e.which == 87) && canMove(player1.x, player1.y-1))// w = up
+        player1.y--;
+    else if((e.which == 90) && canMove(player1.x, player1.y+1)) // z = down
+        player1.y++;
+    else if((e.which == 65) && canMove(player1.x-1, player1.y)) // a = left
+        player1.x--;
+    else if((e.which == 83) && canMove(player1.x+1, player1.y)) // s = right
+        player1.x++;
+    draw();
+    checkWinner();
+    e.preventDefault();
+});
+
+// player2 keys
+$(document).keyup(function(e){
+    if((e.which == 38) && canMove(player2.x, player2.y-1))//Up arrow
+        player2.y--;
+    else if((e.which == 40) && canMove(player2.x, player2.y+1)) // down arrow
+        player2.y++;
+    else if((e.which == 37) && canMove(player2.x-1, player2.y))
+        player2.x--;
+    else if((e.which == 39) && canMove(player2.x+1, player2.y))
+        player2.x++;
+    draw();
+    checkWinner();
+    e.preventDefault();
+});
+
+
+draw();

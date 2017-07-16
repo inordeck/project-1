@@ -2,33 +2,43 @@
 <html>
 <head>
 	<title>Maze Racer</title>
+	<!-- stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Outline|Raleway:300,800" rel="stylesheet">
 	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">	
 </head>
 <body>
 	<header>
-		<h1><a class="headLink" href="index.html">maze racer</a></h1>
-		<h3>First player to navigate to the opposite side of the maze wins.</h3>
+		<h1>maze racer</h1>
+		<div class="playerId">
+			<h5 id="playerTitle">player</h5>
+			<h2 id="playerNum">2</h2>
+			<svg id="playerCircle" height="100" width="100">
+				<circle cx="50" cy="50" r="50" fill="orange"></circle>
+			</svg>
+		</div>
+		<h3 class="bestTime">BEST TIME <span id="bestClock">00:00:00</span></h3>
+		<h3 class="timer">TIME <span id="clock">00:00:00</span></h3>
 	</header>
 	<main>
-		<canvas id="GameBoardCanvas" width="440px" height="440px"></canvas>
-		<form > <!-- click for new race -->
+		<canvas class="gameboard" width="1080px" height="420px"></canvas>
+		 <form > <!-- click for new race -->
     		<input id="tryAgain" type="button" value="try again" onclick="window.location.reload()" />
 		</form>
 		<div class="instructions">
 			<h4>instructions:</h4>
-			<p>PLAYER 1: Use 'W' for up, 'Z' for down, 'A' for left, and 'S' for right</p>
+			<p>PLAYER 1: Use 'w' for up, 's' for down, 'a' for left, and 'd' for right</p>
 			<p>PLAYER 2: Use the arrow keys to move through the maze.</p>
+			<p>First player to navigate to the opposite side of the maze wins.</p>
 		</div>
 	</main>
 	<footer>
 		<p class="copyright">copyright 2017, ian t. nordeck</p>
 	</footer>
 
-<!-- javascript -->
+	<!-- javascript links -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="js/app.js"></script>
-	<script src="js/canvas.js"></script>
+	<script src="js/canvas.js"></script></body>
 </body>
 </html>

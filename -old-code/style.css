@@ -1,0 +1,134 @@
+/*
+FONTS IN USE - GOOGLE FONTS
+font-family: 'Bungee Outline', sans-serif; - no font-weights
+font-family: 'Bungee Inline', sans-serif; - no font-weights
+font-family: 'Raleway', sans-serif; 
+	font-weights: 300 800
+*/
+
+/*
+COLORS IN USE
+
+*/
+/* // GAME HEADER // */ 
+h1 {
+	margin: 10px 25px 0 50px;
+	position: relative;
+	display: inline-block;
+	float: left;
+	font-family: "Bungee Outline", sans-serif;
+	font-size: 130px;
+	color: orange;
+}
+.playerId {
+	margin: 25px 0;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+#playerTitle {
+	z-index: 20;
+	position: absolute;
+	margin: 40px 0 0 5px	;
+}
+#playerNum {
+	z-index: 10;
+	position: absolute;
+	margin: 5px 0 0 22px;
+	color: white;
+}
+#playerCircle {
+	z-index: -10;
+	position: relative;
+}
+.bestTime{
+	float: right;
+	text-align: right;
+	margin: 30px 50px 0 0;
+}
+
+.timer {
+	float: right;
+	text-align: right;
+	margin: 30px 50px 0 0;
+}
+
+h2 { /* player number */
+	font-family: "Bungee Outline", sans-serif;
+	font-size: 90px;
+	color: black;
+}
+
+h3 { /* time clocks */
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 36px
+}
+
+h5 { /* made by & player*/
+	margin: 10px 0;
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 22px;
+	letter-spacing: 1px;
+	text-transform: uppercase; 
+}
+
+main {
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+/* // TRY AGAIN // */
+form {
+	position: relative;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+#tryAgain {
+	padding: 5px 10px;
+	margin: 20px 0;
+	border: 2px solid orange;
+	background-color: white;
+	box-shadow: none;
+	font-family: "Bungee Inline", sans-serif;
+	font-size: 25px;
+	color: orange;
+	text-decoration: none;
+}
+#tryAgain:hover {
+	border: 2px solid orange;
+	background-color: orange;
+	color: white;
+}
+
+/* // INSTRUCTIONS // */
+h4{ /* instructions */
+	display: inline;
+	clear: none;
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	font-size: 18px;
+	text-transform: uppercase; 
+}
+
+p {
+	display: inline;
+	clear: none;
+	font-family: "Raleway", sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+}
+
+/* FOOTER */
+.copyright {
+	padding: 20px 0 40px 0;
+	text-align: center;
+	margin: 0 auto;
+	font-family: "Raleway",sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	color: #58585a;
+}
