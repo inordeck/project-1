@@ -6,6 +6,13 @@ font-family: 'Raleway', sans-serif;
 	font-weights: 300 800
 */
 
+/*
+COLORS IN USE:
+turquoise - p1 = #33cc99
+teal - p2 = #006666
+*/
+
+
 /* // HEADER STYLES // */
 header {
 	margin: 0 auto;
@@ -100,13 +107,21 @@ h4{ /* instructions */
 	text-transform: uppercase;
 	color: gray; 
 }
+#p1 {
+	color: #33cc99;
+	font-weight: 800;
+}
+
+#p2 {
+	color: #006666;
+	font-weight: 800;
+}
 
 p {
 	font-family: "Raleway", sans-serif;
 	font-weight: 300;
 	font-size: 18px;
 }
-
 /* // FOOTER // */
 footer {
 	color: gray;
