@@ -35,10 +35,15 @@ h3 { /* game goal */
 
 /* // GAME STYLES // */
 body {
-    background-image: url("images/maze-bkgrnd.png");
     background: white;
    	margin: 0 auto;
 	text-align: center;
+}
+
+.scores {
+	display: inline;
+	padding: 5px;
+	margin: 5px;
 }
 
 #GameBoardCanvas {

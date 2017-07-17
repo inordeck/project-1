@@ -38,6 +38,33 @@ https://trello.com/b/rnuIu1fc/project-1-maze-racer
 __
 JOURNAL:
 __
+07/16/17
+- working on displaying winning player in win state
+- research and working on how to score game
+__
+07/15/17
+- working on colision detection
+- found resourse on builing mazes based on arrays
+- refactor code based on array positioning
+- set win state
+__
+07/14/17
+- working on error of clearing entire board
+- 1:1 with nick, unblocked on clearing board
+- working on collision detection on edges of canvas and board
+__
+07/13/17
+- set key functions to move character
+- error on clear, either clears whole gameboard or leaves trail of circles
+- add reset button, player badges, and placeholder for timers 
+
+__
+07/12/17
+create start and finish labels and create characters
+- set up html boilerplate, link css and js files
+- place canvas on html page, size and center
+- design maze and create maze in canvas
+__
 07/11/17:
 - write user stories and set up trello board
 - review project with tight beans and get feedback
