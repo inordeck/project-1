@@ -38,6 +38,10 @@ https://trello.com/b/rnuIu1fc/project-1-maze-racer
 __
 JOURNAL:
 __
+07/17/17
+- fix win state to display winning player
+- color instructions to match player icons
+__
 07/16/17
 - working on displaying winning player in win state
 - research and working on how to score game
@@ -57,7 +61,6 @@ __
 - set key functions to move character
 - error on clear, either clears whole gameboard or leaves trail of circles
 - add reset button, player badges, and placeholder for timers 
-
 __
 07/12/17
 create start and finish labels and create characters
