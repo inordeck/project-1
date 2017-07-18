@@ -37,10 +37,15 @@ https://trello.com/b/rnuIu1fc/project-1-maze-racer
 /////
 __
 JOURNAL:
+
 __
 07/17/17
 - fix win state to display winning player
 - color instructions to match player icons
+- present project
+- issue: change configuration of key inputs for p1 to be w=up, s=down, a=left, d=right 
+- issue: working on design of pages: add characters and background image to landing, ads background image to game
+- issue: add 2 additional levels based on array model
 __
 07/16/17
 - working on displaying winning player in win state
