@@ -1,30 +1,19 @@
 console.log("hello");
 
-// animation 
-var requestAnimationFrame =  
-        window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        function(callback) {
-          return setTimeout(callback, 1);
-        };
-
 var canvas = $('#GameBoardCanvas');
 // the game board: 1 = walls, 0 = free space, and -1 = the goal
 var board = [
-    [ -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 1
-    [ 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0], // 2
-    [ 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1], // 3
-    [ 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0], // 4
-    [ 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0], // 5
-    [ 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0], // 6
-    [ 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1], // 7
-    [ 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0], // 8
-    [ 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0], // 9
-    [ 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0], // 10
-    [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, -1], // 11
+    [ -1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0 ], // 1
+    [ 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0 ], // 2
+    [ 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 ], // 3
+    [ 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0 ], // 4
+    [ 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0 ], // 5
+    [ 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0 ], // 6
+    [ 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0 ], // 7
+    [ 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0 ], // 8
+    [ 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0 ], // 9
+    [ 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0 ], // 10
+    [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, -1 ], // 11
 ];
 // player scores
 var p1Score = 0;

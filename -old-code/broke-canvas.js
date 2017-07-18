@@ -1,17 +1,58 @@
 console.log("hello");
 
-// animation 
-var requestAnimationFrame =  
-        window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        function(callback) {
-          return setTimeout(callback, 1);
-        };
-
 var canvas = $('#GameBoardCanvas');
+
+
+// use images for players instead of circles
+// player 1
+var p1Ready = false;
+var p1Image = new Image();
+p1Image.onload = function() {
+    p1Ready = true;
+    p1Image.src = "images/player1.svg";
+    p1Image.width = '40px';
+    p1Image.height = '40px';
+};
+
+
+// player 2
+var p2Ready = false;
+var p2Image = new Image();
+p1Image.onload = function() {
+    p2Ready = true;
+    p2Image.src = "images/player2.svg";
+    p2Image.width = '40px';
+    p2Image.height = '40px';
+};
+
+
+/* NOT WORKING
+    var imageRepository = function() {
+    // define images
+    this.p1Image = Image();
+    this.p2Image = Image();
+    // ensure all images are loaded before game starts
+    var numImages = 2;
+    var numLoaded = 0;
+    function imagesLoaded() {
+        numLoaded++;
+        if (numLoaded === numImages) {
+            window.init();
+        }
+    }
+    this.p1Image.onload = function() {
+        imagesLoaded();
+    };
+    this.p2Image.onload = function() {
+        imagesLoaded();
+    };
+    // set image src 
+
+    this.p1Image.src = "images/p1Image.png";
+    this.p2Image.src = "images/p2Image.png";
+};
+*/
+
 // the game board: 1 = walls, 0 = free space, and -1 = the goal
 var board = [
     [ -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 1
@@ -68,13 +109,27 @@ function draw(){
             }
         }
     }
+/* draw players using images
+
+*/
+    var renderPlayers = function() {
+        var half = blockSize/2;
+        if (p1Ready) {
+            ctx.drawImage(p1Image, player1.x, player1.y);
+        }
+        if (p2Ready) {
+            ctx.drawImage(p2Image, player2.x, player2.y);
+        }
+    };
+    renderPlayers();
 
     // draw the players
+    /*
     var drawP1 = function() {
         ctx.beginPath();
         var half = blockSize/2;
         ctx.fillStyle = "#33cc99";
-        ctx.arc(player1.x*blockSize+half, player1.y*blockSize+half, half, 0, 2*Math.PI);
+        ctx.arc(p1Image.x*blockSize+half, p1Image.y*blockSize+half, half, 0, 2*Math.PI);
         ctx.fill();
     };
     drawP1();
@@ -83,10 +138,11 @@ function draw(){
         ctx.beginPath();
         var half = blockSize/2;
         ctx.fillStyle = "#006666";
-        ctx.arc(player2.x*blockSize+half, player2.y*blockSize+half, half, 0, 2*Math.PI);
+        ctx.arc(p2Image.x*blockSize+half, p2Image.y*blockSize+half, half, 0, 2*Math.PI);
         ctx.fill();
     };
     drawP2();
+    */
 }
 
 // check for a winner
@@ -123,29 +179,29 @@ function setWinState(checkWinner) {
 
 // player 1 keys
 $(document).keyup(function(e){
-    if((e.which == 87) && canMove(player1.x, player1.y-1))// w = up
-        player1.y--;
-    else if((e.which == 83) && canMove(player1.x, player1.y+1)) // s = down
-        player1.y++;
-    else if((e.which == 65) && canMove(player1.x-1, player1.y)) // a = left
-        player1.x--;
-    else if((e.which == 68) && canMove(player1.x+1, player1.y)) // d = right
-        player1.x++;
+    if((e.which == 87) && canMove(p1Image.x, p1Image.y-1))// w = up
+        p1Image.y--;
+    else if((e.which == 90) && canMove(p1Image.x, p1Image.y+1)) // z = down
+        p1Image.y++;
+    else if((e.which == 65) && canMove(p1Image.x-1, p1Image.y)) // a = left
+        p1Image.x--;
+    else if((e.which == 83) && canMove(p1Image.x+1, p1Image.y)) // s = right
+        p1Image.x++;
     draw();
     checkWinner();
     e.preventDefault();
 });
 
-// player2 keys
+// p2Image keys
 $(document).keyup(function(e){
-    if((e.which == 38) && canMove(player2.x, player2.y-1))//Up arrow
-        player2.y--;
-    else if((e.which == 40) && canMove(player2.x, player2.y+1)) // down arrow
-        player2.y++;
-    else if((e.which == 37) && canMove(player2.x-1, player2.y)) // left arrow
-        player2.x--;
-    else if((e.which == 39) && canMove(player2.x+1, player2.y)) // right arrow
-        player2.x++;
+    if((e.which == 38) && canMove(p2Image.x, p2Image.y-1))//Up arrow
+        p2Image.y--;
+    else if((e.which == 40) && canMove(p2Image.x, p2Image.y+1)) // down arrow
+        p2Image.y++;
+    else if((e.which == 37) && canMove(p2Image.x-1, p2Image.y))
+        p2Image.x--;
+    else if((e.which == 39) && canMove(p2Image.x+1, p2Image.y))
+        p2Image.x++;
     draw();
     checkWinner();
     e.preventDefault();

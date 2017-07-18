@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Play Maze Racer</title>
+	<title>Maze Racer // Level 2</title>
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Outline|Raleway:300,800" rel="stylesheet">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-	<header>
-		<h1>Play Maze Racer</h1>
+<body id="gameBody">
+	<header id="gameHeader">
+		<h1><a class="headLink" href="index.html">maze racer</a></h1>
 		<h3>First player to navigate to the opposite side of the maze wins.</h3>
 	</header>
-	<main id="mazeImage">
-		<div class="monsters">
-			<img id="p1Character" src="images/monster-1.svg" alt="player 1 character">
-			<img id="p2Character" src="images/monster-2.svg" alt="player 2 character">
-		</div>
-		<div class="playGame">
-			<form action="game-1.html"> <!-- click to play button -->
-    			<input id="play" type="submit" value="Click to Play"/>
-			</form>
-		</div>
+	<main id="game">
+		<!--<div class="scores">
+			<h4>scores</h4>
+			<p>PLAYER 1: <span id="p1Score">0</span></p>
+			<p>PLAYER 2: <span id="p2Score">0</span></p>
+		</div>-->
+		<canvas id="GameBoardCanvas" width="440px" height="440px"></canvas>
+		<form > <!-- click for new race -->
+    		<input id="tryAgain" type="button" value="try again" onclick="window.location.reload()" />
+		</form>
+		<form action="game-3.html"> <!-- click to play button -->
+    		<input id="level3" type="submit" value="Level 3"/>
+		</form>
+
 		<div class="instructions">
 			<h4>instructions:</h4>
 			<p><span id="p1">PLAYER 1:</span> Use 'W' for up, 'S' for down, 'A' for left, and 'D' for right</p>
 			<p><span id="p2">PLAYER 2:</span> Use the arrow keys to move through the maze.</p>
 		</div>
-
-		
 	</main>
 	<footer>
-		<div class="footerInfo">
-			<h4 class="made">made by:</h4>
-			<img class="logo" src="images/ian-nordeck-logo-01.svg" alt="ian t. nordeck logo">
-			<p class="copyright">copyright 2017, ian t. nordeck</p>
-		</div>
+		<p class="copyright">copyright 2017, ian t. nordeck</p>
 	</footer>
 
-	<!-- javascript links -->
+<!-- javascript -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="js/app.js"></script>
-
-	</body>
+	<script src="js/canvas-2.js"></script>
+</body>
 </html>

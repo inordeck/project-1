@@ -1,16 +1,5 @@
 console.log("hello");
 
-// animation 
-var requestAnimationFrame =  
-        window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        function(callback) {
-          return setTimeout(callback, 1);
-        };
-
 var canvas = $('#GameBoardCanvas');
 // the game board: 1 = walls, 0 = free space, and -1 = the goal
 var board = [

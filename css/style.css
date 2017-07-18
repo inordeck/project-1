@@ -20,7 +20,7 @@ header {
 }
 
 h1, .headLink {
-	margin: 2px 0;
+	margin: 10px 0 5px 0;
 	font-family: "Bungee Outline", sans-serif;
 	font-size: 75px;
 	text-decoration: none;
@@ -34,7 +34,7 @@ h1, .headLink {
 }
 
 h3 { /* game goal */
-	margin: 2px 0 8px 0;
+	margin: 2px 0 25px 0;
 	font-family: "Raleway", sans-serif;
 	font-weight: 300;
 	font-size: 18px;
@@ -47,6 +47,39 @@ body {
 	text-align: center;
 }
 
+#mazeImage {
+	background: url("../images/maze-bkgrnd.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+#gameBody {
+	background: url("../images/maze-bkgrnd.png");
+}
+
+.monsters {
+	margin: 0 auto;
+	max-width: 40%
+}
+
+#p1Character {
+/*	position: relative;
+	display: inline-block; */
+	float: left;
+	height: 100px
+}
+
+#p2Character {
+	position: relative;
+	display: inline-block;
+	float: right;
+	height: 100px
+/*	margin-right: 20%; */
+
+}
+
+
 .scores {
 	display: inline;
 	padding: 5px;
@@ -54,11 +87,13 @@ body {
 }
 
 #GameBoardCanvas {
+	display: block;
 	position: relative;
 	z-index: -10;
     border: 40px solid gray;
-    padding: 0;
+    padding:; 0;
 	margin: 0 auto;
+	background-color: white;
 }
 
 h2 { /* game winner */
@@ -73,17 +108,17 @@ h2 { /* game winner */
 	color: orange;
 }
 
-/* // TRY AGAIN // */
+/* // PLAY / TRY AGAIN / LEVEL 2 // */
 form {
-	position: relative;
+	display: inline-block;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 }
 
-#tryAgain, #play {
+#tryAgain, #play, #level2, #level3 {
 	padding: 5px 10px;
-	margin: 20px 0;
+	margin: 50px 20px 25px 20px;
 	border: 2px solid orange;
 	background-color: white;
 	box-shadow: none;
@@ -93,7 +128,7 @@ form {
 	text-decoration: none;
 }
 
-#tryAgain, #play:hover {
+#tryAgain:hover, #play:hover, #level2:hover #level3:hover{
 	border: 2px solid orange;
 	background-color: orange;
 	color: white;
@@ -101,6 +136,7 @@ form {
 
 /* // INSTRUCTIONS // */
 h4{ /* instructions */
+	margin: 10px 0;
 	font-family: "Raleway", sans-serif;
 	font-weight: 800;
 	font-size: 18px;
@@ -118,6 +154,7 @@ h4{ /* instructions */
 }
 
 p {
+	margin: 15px 0;
 	font-family: "Raleway", sans-serif;
 	font-weight: 300;
 	font-size: 18px;
