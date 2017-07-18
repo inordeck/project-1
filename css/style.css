@@ -128,7 +128,7 @@ form {
 	text-decoration: none;
 }
 
-#tryAgain:hover, #play:hover, #level2:hover #level3:hover{
+#tryAgain:hover, #play:hover, #level2:hover, #level3:hover{
 	border: 2px solid orange;
 	background-color: orange;
 	color: white;
