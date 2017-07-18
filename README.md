@@ -37,7 +37,10 @@ https://trello.com/b/rnuIu1fc/project-1-maze-racer
 /////
 __
 JOURNAL:
-
+__
+07/18/17
+- fix margins to avoid vertical scrolling on game pages
+- update readme
 __
 07/17/17
 - fix win state to display winning player
